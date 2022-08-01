@@ -36,10 +36,10 @@ const BooknAuthor = (data) => {
 
 const AddBookForm =()=>{
     // create Add Book Form 
-    const bookForm = document.createElement('div');
+    const bookForm = document.createElement('form');
     bookForm.id ='form';
-    // bookForm.action='#';
-    // bookForm.method='POST';
+    bookForm.action='#';
+    bookForm.method='POST';
 
     // Create input for Book Name 
     const bookInput = document.createElement('input');
