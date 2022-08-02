@@ -2,3 +2,58 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  gap: 10px;
+}
+
+header h2 {
+  text-align: center;
+  padding: 10px;
+}
+
+.container {
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid black;
+  padding: 5px;
+  gap: 5px;
+}
+
+.container .wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.container button {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: flex-end;
+}
+
+ .row {
+  width: 40px;
+  height: 1px;
+  background-color: gray;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+}

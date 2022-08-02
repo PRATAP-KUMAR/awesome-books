@@ -14,20 +14,33 @@ const awesomeBooks = document.createElement('div');
 
 function render() {
   awesomeBooks.innerHTML = '';
-
+  let i=0;
   const BooknAuthor = (data) => {
     const container = document.createElement('div');
+    container.className = 'container';
+    container.id =i++;
+    if(i%2==0){
+      container.style.backgroundColor = '#D3D3D3';
+    }
+
+    const wrapper =document.createElement('div');
+    wrapper.className = 'wrapper';
+    container.appendChild(wrapper);
 
     const bookName = document.createElement('div');
     bookName.innerText = data.title;
-    container.appendChild(bookName);
+    wrapper.appendChild(bookName);
+    
+    const byText = document.createElement('div');
+    byText.innerText = 'By';
+    wrapper.appendChild(byText);
 
     const authName = document.createElement('div');
     authName.innerText = data.author;
-    container.appendChild(authName);
+    wrapper.appendChild(authName);
 
     const button = document.createElement('button');
-    button.innerText = 'Remove Book';
+    button.innerText = 'Remove';
     container.appendChild(button);
     button.onclick = () => {
       books = books.filter((book) => book !== data);
