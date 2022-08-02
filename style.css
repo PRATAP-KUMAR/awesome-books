@@ -13,18 +13,23 @@ body {
   gap: 10px;
 }
 
+.awesomeBooks {
+  border: 2px solid black;
+
+}
+
 header h2 {
   text-align: center;
   padding: 10px;
 }
 
 .container {
-  width: 400px;
+  width: 300px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   padding: 5px;
   gap: 5px;
 }

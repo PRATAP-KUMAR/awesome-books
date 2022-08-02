@@ -11,6 +11,7 @@ function saveLocally() {
 }
 
 const awesomeBooks = document.createElement('div');
+awesomeBooks.className ='awesomeBooks';
 
 function render() {
   awesomeBooks.innerHTML = '';
