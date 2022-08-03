@@ -10,7 +10,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   padding: 20px;
   gap: 10px;
 }
@@ -29,7 +28,7 @@ nav {
   align-items: center;
   border: 2px solid black;
   padding: 20px;
-  padding-right: 0px;
+  padding-right: 0;
 }
 
 ul {
@@ -88,16 +87,13 @@ header h2 {
 }
 
 .row {
+  display: none;
   width: 40px;
   height: 1px;
   background-color: gray;
 }
 
 h3 {
-  display: none;
-}
-
-.row {
   display: none;
 }
 
@@ -109,7 +105,7 @@ form {
   text-align: center;
 }
 
-form>input {
+form > input {
   height: 40px;
   width: 400px;
   border-radius: 2px;
@@ -142,10 +138,10 @@ footer {
   position: fixed;
   height: 50px;
   background-color: lightgray;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  margin-bottom: 0px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 0;
   border: 2px solid black;
 }
 
