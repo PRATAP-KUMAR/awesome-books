@@ -10,19 +10,17 @@
 </head>
 
 <body>
-    <header>
-        <h2>All awesome books</h2>
-    </header>
     <section id="awesome-books">
+        <h2>All awesome books</h2>
     </section>
     <div class="row"></div>
     <h3>Add a new book</h3>
     <form>
-        <input type="text" name="title" placeholder="Title" required/><br>
-        <input type="text" name="author" placeholder="Author" required/><br>
-        
-        <button type="submit">Add</button>
-        
+        <input type="text" id="title" name="title" placeholder="Title" /><br>
+        <input type="text" id="author" name="author" placeholder="Author" /><br>
+
+        <button type="submit" id="btn-add">Add</button>
+
     </form>
 
     <script type="module" src="./populate.js"></script>

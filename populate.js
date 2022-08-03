@@ -1,20 +1,23 @@
-// class book {
-//   constructor(title, author, id) {
-//     this.title = title;
-//     this.author = author;
-//     this.id = Math.random();
-//   }
-// }
+/* eslint-disable max-classes-per-file */
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-plusplus */
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+    this.id = Math.random();
+  }
+}
 
-let books = class books {
+class Books {
   constructor() {
-    this.books = [];
+    this.data = [];
   }
 
   addBook(book) {
     this.data.push(book);
-    localStorage.setItem('BOOKS', JSON.stringify(this.book));
-    // BooknAuthor(this.data);
+    localStorage.setItem('BOOKS', JSON.stringify(this.data));
+    addToList(book);
   }
 
   removeBook(id) {
@@ -25,77 +28,71 @@ let books = class books {
     // location.reload();
     return false;
   }
-};
-if (!localStorage.getItem('BOOKS')) {
-  localStorage.setItem('BOOKS', JSON.stringify(books));
-} else {
-  books = JSON.parse(localStorage.getItem('BOOKS'));
 }
 
-function saveLocally() {
-  localStorage.setItem('BOOKS', JSON.stringify(books));
-}
+const books = new Books();
 
+function getInput() {
+  const title = document.getElementById('title');
+  const author = document.getElementById('author');
+  const book = new Book(title.value, author.value);
+  title.value = '';
+  author.value = '';
+  return book;
+}
 const awesomeBooks = document.createElement('div');
-awesomeBooks.className = 'awesomeBooks';
+awesomeBooks.innerHTML = '';
+let i = 0;
+function addToList(bookObj) {
+  const container = document.createElement('div');
+  container.className = 'container';
+  i++;
+  if (i % 2 === 0) {
+    container.style.backgroundColor = '#D3D3D3';
+  }
+  container.setAttribute('id', bookObj.id);
+  const wrapper = document.createElement('div');
+  wrapper.className = 'wrapper';
+  container.appendChild(wrapper);
 
-function render() {
-  awesomeBooks.innerHTML = '';
-  let i = 0;
-  const BooknAuthor = (data) => {
-    const container = document.createElement('div');
-    container.className = 'container';
-    i += 1;
-    if (i % 2 === 0) {
-      container.style.backgroundColor = '#D3D3D3';
-    }
+  const bookName = document.createElement('div');
+  bookName.innerText = bookObj.title;
+  wrapper.appendChild(bookName);
 
-    const wrapper = document.createElement('div');
-    wrapper.className = 'wrapper';
-    container.appendChild(wrapper);
+  const byText = document.createElement('div');
+  byText.innerText = 'By';
+  wrapper.appendChild(byText);
 
-    const bookName = document.createElement('div');
-    bookName.innerText = `"${data.title}"`;
-    wrapper.appendChild(bookName);
+  const authName = document.createElement('div');
+  authName.innerText = bookObj.author;
+  wrapper.appendChild(authName);
 
-    const byText = document.createElement('div');
-    byText.innerText = 'by';
-    wrapper.appendChild(byText);
+  const buttonDelete = document.createElement('button');
+  buttonDelete.innerText = 'Remove';
+  container.appendChild(buttonDelete);
 
-    const authName = document.createElement('div');
-    authName.innerText = data.author;
-    wrapper.appendChild(authName);
-
-    const button = document.createElement('button');
-    button.innerText = 'Remove';
-    container.appendChild(button);
-    button.onclick = () => {
-      books = books.filter((book) => book !== data);
-      saveLocally();
-      render();
-    };
-
-    return container;
-  };
-
-  books.forEach((data) => {
-    awesomeBooks.appendChild(BooknAuthor(data));
+  buttonDelete.addEventListener('click', () => {
+    books.removeBook(bookObj.id);
   });
 
+  awesomeBooks.appendChild(container);
   const section = document.body.querySelector('#awesome-books');
   section.appendChild(awesomeBooks);
 }
 
-render();
-
-const form = document.body.querySelector('form');
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const title = form.title.value;
-  const author = form.author.value;
-  const book = { title, author };
-  books.push(book);
-  saveLocally();
-  render();
-  form.reset();
+const addButton = document.getElementById('btn-add');
+addButton.addEventListener('click', () => {
+  const book = getInput();
+  if ((book.author !== '') && (book.title !== '')) {
+    books.addBook(book);
+  }
 });
+
+window.onload = () => {
+  books.data = JSON.parse(localStorage.getItem('BOOKS' || '[]'));
+  if (books.data === null) {
+    books.data = [];
+    return;
+  }
+  books.data.forEach((book) => addToList(book));
+};

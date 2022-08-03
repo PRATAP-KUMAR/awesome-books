@@ -13,8 +13,9 @@ body {
   gap: 10px;
 }
 
-.awesomeBooks {
+#awesome-books {
   border: 2px solid black;
+  text-align: center;
 }
 
 header h2 {
