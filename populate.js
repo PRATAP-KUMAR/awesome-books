@@ -1,11 +1,3 @@
-// class book {
-//   constructor(title, author, id) {
-//     this.title = title;
-//     this.author = author;
-//     this.id = Math.random();
-//   }
-// }
-
 let books = class books {
   constructor() {
     this.books = [];
@@ -14,7 +6,6 @@ let books = class books {
   addBook(book) {
     this.data.push(book);
     localStorage.setItem('BOOKS', JSON.stringify(this.book));
-    // BooknAuthor(this.data);
   }
 
   removeBook(id) {
@@ -22,7 +13,6 @@ let books = class books {
     book.remove();
     this.data = this.data.filter((bookObj) => bookObj.id !== id);
     localStorage.setItem('BOOKS', JSON.stringify(this.data));
-    // location.reload();
     return false;
   }
 };
