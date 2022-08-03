@@ -11,6 +11,8 @@ building a basic website that allows users to add/remove books from a list by us
 To get a local copy up and running follow these simple example steps:
 ## prerequisites
 - must have git installed.
+- must have vscode installed or any other IDE.
+- must installed linters in the project
 
 ## setup
 - git clone https://github.com/PRATAP-KUMAR/awesome-books.git/

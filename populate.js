@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 /* eslint-disable no-use-before-define */
-/* eslint-disable no-plusplus */
+/* eslint-disable no-restricted-globals */
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -25,7 +25,7 @@ class Books {
     book.remove();
     this.data = this.data.filter((bookObj) => bookObj.id !== id);
     localStorage.setItem('BOOKS', JSON.stringify(this.data));
-    // location.reload();
+    location.reload();
     return false;
   }
 }
@@ -42,14 +42,9 @@ function getInput() {
 }
 const awesomeBooks = document.createElement('div');
 awesomeBooks.innerHTML = '';
-let i = 0;
 function addToList(bookObj) {
   const container = document.createElement('div');
   container.className = 'container';
-  i++;
-  if (i % 2 === 0) {
-    container.style.backgroundColor = '#D3D3D3';
-  }
   container.setAttribute('id', bookObj.id);
   const wrapper = document.createElement('div');
   wrapper.className = 'wrapper';

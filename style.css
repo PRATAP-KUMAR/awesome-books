@@ -14,7 +14,6 @@ body {
 }
 
 #awesome-books {
-  border: 2px solid black;
   text-align: center;
 }
 
@@ -30,6 +29,8 @@ header h2 {
   justify-content: space-between;
   align-items: center;
   padding: 5px;
+  border: 2px solid black;
+
   gap: 5px;
 }
 
