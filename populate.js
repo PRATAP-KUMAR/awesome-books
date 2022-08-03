@@ -1,33 +1,31 @@
-class book {
-  constructor(title,author,id){
-    this.title=title;
-    this.author=author;
-    this.id=Math.random();
-  };
-}
+// class book {
+//   constructor(title, author, id) {
+//     this.title = title;
+//     this.author = author;
+//     this.id = Math.random();
+//   }
+// }
 
-class books{
-  constructor(){
-   this.books = [];
+let books = class books {
+  constructor() {
+    this.books = [];
   }
-  addBook(book){
+
+  addBook(book) {
     this.data.push(book);
-    localStorage.setItem('BOOKS',JSON.stringify(this.book));
-    BooknAuthor(this.data);
-
+    localStorage.setItem('BOOKS', JSON.stringify(this.book));
+    // BooknAuthor(this.data);
   }
 
-  removeBook(id){
-    const book =document.getElementById(id);
+  removeBook(id) {
+    const book = document.getElementById(id);
     book.remove();
-    this.data=this.data.filter((bookObj)=>bookObj.id!==id);
-    localStorage.setItem('BOOKS',JSON.stringify(this.data));
-    location.reload();
+    this.data = this.data.filter((bookObj) => bookObj.id !== id);
+    localStorage.setItem('BOOKS', JSON.stringify(this.data));
+    // location.reload();
     return false;
-
   }
-
-}
+};
 if (!localStorage.getItem('BOOKS')) {
   localStorage.setItem('BOOKS', JSON.stringify(books));
 } else {
@@ -39,29 +37,29 @@ function saveLocally() {
 }
 
 const awesomeBooks = document.createElement('div');
-awesomeBooks.className ='awesomeBooks';
+awesomeBooks.className = 'awesomeBooks';
 
 function render() {
   awesomeBooks.innerHTML = '';
-  let i=0;
+  let i = 0;
   const BooknAuthor = (data) => {
     const container = document.createElement('div');
     container.className = 'container';
-    i++;
-    if(i%2==0){
+    i += 1;
+    if (i % 2 === 0) {
       container.style.backgroundColor = '#D3D3D3';
     }
 
-    const wrapper =document.createElement('div');
+    const wrapper = document.createElement('div');
     wrapper.className = 'wrapper';
     container.appendChild(wrapper);
 
     const bookName = document.createElement('div');
-    bookName.innerText = data.title;
+    bookName.innerText = `"${data.title}"`;
     wrapper.appendChild(bookName);
-    
+
     const byText = document.createElement('div');
-    byText.innerText = 'By';
+    byText.innerText = 'by';
     wrapper.appendChild(byText);
 
     const authName = document.createElement('div');

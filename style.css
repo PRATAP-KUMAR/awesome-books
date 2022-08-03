@@ -15,7 +15,6 @@ body {
 
 .awesomeBooks {
   border: 2px solid black;
-
 }
 
 header h2 {
@@ -24,7 +23,7 @@ header h2 {
 }
 
 .container {
-  width: 300px;
+  width: 600px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -48,7 +47,7 @@ header h2 {
   align-items: flex-end;
 }
 
- .row {
+.row {
   width: 40px;
   height: 1px;
   background-color: gray;
@@ -60,4 +59,16 @@ form {
   justify-content: center;
   align-items: flex-end;
   text-align: center;
+}
+
+form > input {
+  height: 40px;
+  width: 400px;
+  border-radius: 2px;
+}
+
+form ::placeholder {
+  font-size: 12px;
+  padding: 5px;
+  color: #000;
 }
