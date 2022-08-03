@@ -91,3 +91,39 @@ window.onload = () => {
   }
   books.data.forEach((book) => addToList(book));
 };
+
+  document.getElementById('list').addEventListener('click',()=>{
+  document.getElementById('list').style.color='blue';
+  document.getElementById('add').style.color='black';
+  document.getElementById('contact').style.color='black';
+  document.getElementById('awesome-books').style.display= 'unset';
+  document.getElementById('row').style.display= 'none';
+  document.getElementById('form-title').style.display= 'none';
+  document.getElementById('form').style.display= 'none';
+  document.getElementById('section-contact').style.display='none';
+
+});
+
+document.getElementById('add').addEventListener('click',()=>{
+  document.getElementById('list').style.color='black';
+  document.getElementById('add').style.color='blue';
+  document.getElementById('contact').style.color='black';
+  document.getElementById('awesome-books').style.display= 'none';
+  document.getElementById('row').style.display= 'none';
+  document.getElementById('form-title').style.display= 'flex';
+  document.getElementById('form').style.display= 'flex';
+  document.getElementById('section-contact').style.display='none';
+
+
+});
+
+document.getElementById('contact').addEventListener('click',()=>{
+  document.getElementById('list').style.color='black';
+  document.getElementById('add').style.color='black';
+  document.getElementById('contact').style.color='blue';
+  document.getElementById('section-contact').style.display='flex';
+  document.getElementById('awesome-books').style.display= 'none';
+  document.getElementById('row').style.display= 'none';
+  document.getElementById('form-title').style.display= 'none';
+  document.getElementById('form').style.display= 'none';
+});
