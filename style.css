@@ -29,7 +29,6 @@ header h2 {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* border: 2px solid black; */
   padding: 5px;
   gap: 5px;
 }

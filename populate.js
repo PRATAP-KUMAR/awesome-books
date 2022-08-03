@@ -1,5 +1,33 @@
-let books = [];
+class book {
+  constructor(title,author,id){
+    this.title=title;
+    this.author=author;
+    this.id=Math.random();
+  };
+}
 
+class books{
+  constructor(){
+   this.books = [];
+  }
+  addBook(book){
+    this.data.push(book);
+    localStorage.setItem('BOOKS',JSON.stringify(this.book));
+    BooknAuthor(this.data);
+
+  }
+
+  removeBook(id){
+    const book =document.getElementById(id);
+    book.remove();
+    this.data=this.data.filter((bookObj)=>bookObj.id!==id);
+    localStorage.setItem('BOOKS',JSON.stringify(this.data));
+    location.reload();
+    return false;
+
+  }
+
+}
 if (!localStorage.getItem('BOOKS')) {
   localStorage.setItem('BOOKS', JSON.stringify(books));
 } else {
@@ -19,7 +47,7 @@ function render() {
   const BooknAuthor = (data) => {
     const container = document.createElement('div');
     container.className = 'container';
-    container.id =i++;
+    i++;
     if(i%2==0){
       container.style.backgroundColor = '#D3D3D3';
     }
